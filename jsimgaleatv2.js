@@ -7,10 +7,24 @@
 					"http://mexico.cnn.com/media/2012/01/03/pjaros-hitchcock.jpg"];
 					
 					
-	function changerImg (id) {
-	var element = document.getElementById(id);
+	function changerImg (element,max) {
 	
-	element.innerHTML ='<img src="'+ urlimages[Math.round(Math.random()*(urlimages.length-1))]+'">'
-}
+	var aleat = (Math.round(Math.random()*(max-1)))*2 + 1 //calcula aleatorio entre 0 y 7, lo multiplica por 2 y suma uno porque childNodes los impares
+	alert(aleat)
+	element.childNodes[aleat].attributes[0].nodeValue = "display:inherit"
+	
+	}
+	
+	function reinicCss(id,max){
+		
+		var element = document.getElementById(id);
+		var i = 1;
+		
+		while(i<(2*max+1)){
+			element.childNodes[i].attributes[0].nodeValue = "display:none"
+			i = i+2;
+		}
+		changerImg(element,max)
+	}
 					
 	
